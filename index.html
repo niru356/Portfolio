@@ -3,136 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nirakar Rath | Interactive BI Portfolio</title>
+<title>Nirakar Rath | BI & Data Portfolio</title>
 
+<!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<style>
-html{scroll-behavior:smooth;}
-:root{
-  --primary:#6366f1;
-  --accent:#22c55e;
-  --glass:rgba(255,255,255,.08);
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{
-  background:linear-gradient(120deg,#020617,#1e1b4b,#020617);
-  background-size:400% 400%;
-  animation:bgMove 15s ease infinite;
-  color:#f8fafc;
-}
-@keyframes bgMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-.reveal{opacity:0;transform:translateY(70px) scale(.96);transition:1s ease;}
-.reveal.active{opacity:1;transform:translateY(0) scale(1);}
-.hero{min-height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(0,0,0,.2),rgba(0,0,0,.9));}
-.hero-content{position:relative;z-index:2;max-width:820px;}
-.star{position:absolute;width:2px;height:2px;background:white;animation:twinkle 5s infinite linear;opacity:.4;}
-@keyframes twinkle{from{transform:translateY(0)} to{transform:translateY(-120vh)}}
-
-/* PROFILE IMAGE */
-.profile-img{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  object-fit:cover;
-  border:5px solid rgba(255,255,255,.25);
-  box-shadow:0 0 50px rgba(99,102,241,.8);
-  margin-bottom:25px;
-  animation:float 6s ease-in-out infinite, pulseGlow 3s infinite;
-  transition:.5s;
-}
-.profile-img:hover{transform:scale(1.12) rotate(5deg);}
-@keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)}}
-@keyframes pulseGlow{0%,100%{box-shadow:0 0 50px rgba(99,102,241,.8)} 50%{box-shadow:0 0 70px rgba(34,197,94,.9)}}
-
-/* HERO TEXT */
-.animated-text{
-  font-size:4rem;
-  font-weight:700;
-  background:linear-gradient(90deg, #ff3cac, #784ba0, #22c55e, #3b82f6, #facc15);
-  background-size:300% 300%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:rainbow 6s linear infinite, shimmer 2s ease-in-out infinite;
-  margin-bottom:10px;
-}
-@keyframes rainbow{0%{background-position:0%}100%{background-position:300%}}
-@keyframes shimmer{0%,100%{transform:translateX(0)} 50%{transform:translateX(5px)}}
-
-.animated-role{
-  font-size:1.5rem;
-  font-weight:400;
-  margin:10px 0;
-  min-height:28px;
-  background:linear-gradient(90deg,#facc15,#22c55e,#3b82f6);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:roleColor 4s linear infinite;
-}
-@keyframes roleColor{0%{background-position:0%}100%{background-position:300%}}
-#typing{margin-top:15px;font-size:1.1rem;opacity:.9;min-height:28px;}
-
-/* BUTTON */
-.btn{
-  margin-top:30px;
-  display:inline-block;
-  padding:16px 42px;
-  border-radius:50px;
-  background:linear-gradient(135deg,#6366f1,#22c55e,#3b82f6);
-  color:#fff;
-  text-decoration:none;
-  box-shadow:0 0 50px rgba(99,102,241,.7);
-  transition:.4s;
-  font-weight:600;
-}
-.btn:hover{transform:scale(1.12);box-shadow:0 0 80px rgba(34,197,94,.9);}
-
-/* SECTIONS */
-section{padding:5rem 8%}
-.title{text-align:center;font-size:2.8rem;margin-bottom:4rem;background:linear-gradient(to right,#818cf8,#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-
-/* DASHBOARD */
-.dashboard{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;}
-.card{background:var(--glass);backdrop-filter:blur(20px);padding:2.7rem;border-radius:25px;box-shadow:0 30px 80px rgba(0,0,0,.6);position:relative;transition:.4s;transform-style:preserve-3d;}
-.card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(99,102,241,.35),transparent 60%);opacity:0;transition:.4s;}
-.card:hover::before{opacity:1}
-.card:hover{transform:translateY(-16px) rotateX(6deg) rotateY(-6deg);}
-.card i{font-size:2.8rem;color:#a5b4fc;margin-bottom:15px;}
-
-/* CHART BOX */
-.chart-box{background:var(--glass);padding:2.5rem;border-radius:25px;box-shadow:0 0 60px rgba(34,197,94,.25);}
-
-/* FOOTER */
-footer{text-align:center;padding:3rem;background:#020617;}
-footer a{color:#a5b4fc;margin:0 14px;font-size:1.5rem;}
-footer a:hover{color:#22c55e}
-
-/* RESPONSIVE */
-@media(max-width:900px){.dashboard{grid-template-columns:1fr}.hero h1{font-size:2.6rem}}
-
-/* FILTER BUTTONS */
-.filter-btns{text-align:center;margin-bottom:30px;}
-.filter-btns button{margin:0 8px;padding:10px 25px;border-radius:30px;border:none;background:rgba(99,102,241,.5);color:white;cursor:pointer;transition:.3s;}
-.filter-btns button.active{background:linear-gradient(135deg,var(--primary),var(--accent));}
-</style>
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <script>
-    for(let i=0;i<80;i++){
-      document.write(`<div class="star" style="left:${Math.random()*100}%;top:${Math.random()*120}%;animation-duration:${3+Math.random()*5}s"></div>`)
-    }
-  </script>
-
+<!-- HERO SECTION -->
+<header class="hero">
+  <div id="stars"></div>
   <div class="hero-content">
     <img src="photo.jpg" alt="Nirakar Rath" class="profile-img">
     <h1 class="animated-text">Nirakar Rath</h1>
@@ -140,112 +25,99 @@ footer a:hover{color:#22c55e}
     <p id="typing"></p>
     <a href="#dashboard" class="btn">Explore Dashboard</a>
   </div>
-</div>
+</header>
 
-<!-- DASHBOARD -->
+<!-- DASHBOARD SECTION -->
 <section id="dashboard" class="reveal">
-<h2 class="title">Professional Dashboard</h2>
-<div class="dashboard">
-<div class="card reveal"><i class="fa-solid fa-chart-line"></i><h3>Data Analysis</h3><p>Python, Pandas, NumPy, Visualization</p></div>
-<div class="card reveal"><i class="fa-solid fa-database"></i><h3>SQL & Databases</h3><p>Joins, Optimization, Modeling</p></div>
-<div class="card reveal"><i class="fa-solid fa-chart-pie"></i><h3>BI & Reporting</h3><p>Power BI, Excel Dashboards</p></div>
-</div>
+  <h2 class="title">Professional Skills</h2>
+  <div class="dashboard">
+    <div class="card reveal">
+      <i class="fa-solid fa-chart-line"></i>
+      <h3>Data Analysis</h3>
+      <p>Python, Pandas, NumPy, Matplotlib</p>
+    </div>
+    <div class="card reveal">
+      <i class="fa-solid fa-database"></i>
+      <h3>SQL & Databases</h3>
+      <p>Joins, Query Optimization, Modeling</p>
+    </div>
+    <div class="card reveal">
+      <i class="fa-solid fa-chart-pie"></i>
+      <h3>BI & Reporting</h3>
+      <p>Power BI, Tableau, Excel Dashboards</p>
+    </div>
+  </div>
 </section>
 
-<!-- INTERACTIVE SKILL INSIGHT -->
+<!-- INTERACTIVE SKILLS CHARTS -->
 <section class="reveal">
-<h2 class="title">Interactive Skill Dashboard</h2>
+  <h2 class="title">Skill Insights</h2>
+  <div class="filter-btns">
+    <button class="active" data-skill="programming">Programming</button>
+    <button data-skill="bi">BI Tools</button>
+    <button data-skill="statistics">Statistics</button>
+  </div>
+  <div class="dashboard charts">
+    <div class="chart-box"><canvas id="chart1"></canvas></div>
+    <div class="chart-box"><canvas id="chart2"></canvas></div>
+    <div class="chart-box"><canvas id="chart3"></canvas></div>
+  </div>
+</section>
 
-<div class="filter-btns">
-<button class="active" data-skill="programming">Programming Skills</button>
-<button data-skill="bi">BI Tools</button>
-<button data-skill="statistics">Statistics & Analytics</button>
-</div>
-
-<div class="dashboard" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;">
-<div class="chart-box reveal"><canvas id="chart1"></canvas></div>
-<div class="chart-box reveal"><canvas id="chart2"></canvas></div>
-<div class="chart-box reveal"><canvas id="chart3"></canvas></div>
-</div>
+<!-- PROJECTS SECTION -->
+<section class="reveal">
+  <h2 class="title">Projects</h2>
+  <div class="dashboard">
+    <div class="card project-card reveal">
+      <h3>Sales Dashboard</h3>
+      <p>Power BI • SQL • Data Visualization</p>
+    </div>
+    <div class="card project-card reveal">
+      <h3>Customer Churn Analysis</h3>
+      <p>Python • Pandas • ML Models</p>
+    </div>
+    <div class="card project-card reveal">
+      <h3>Predictive Analytics</h3>
+      <p>Python • Regression • Data Forecasting</p>
+    </div>
+  </div>
+<!-- EDUCATION SECTION (LinkedIn-style Animated Timeline) -->
+<section class="reveal" id="education">
+  <h2 class="title">Education</h2>
+  <div class="timeline-animated">
+        <!-- Timeline Dot & Card Right -->
+    <div class="timeline-item right reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <img src="./kiiit.png" alt="KIIT University Logo" class="university-logo">
+        <h3>MCA / Advanced Studies</h3>
+        <span class="timeline-year">2025 - 2027</span>
+        <p>KIIT University</p>
+      </div>
+    </div>
+    <!-- Timeline Dot & Card Left -->
+    <div class="timeline-item left reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <img src="./logo.png" alt="Utkal University Logo" class="university-logo">
+        <h3>BCA</h3>
+        <span class="timeline-year">2021 - 2024</span>
+        <p>Utkal University</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-<p>© 2025 Nirakar Rath</p>
-<a href="#"><i class="fab fa-linkedin"></i></a>
-<a href="#"><i class="fab fa-github"></i></a>
-<a href="#"><i class="fas fa-envelope"></i></a>
+  <p>© 2025 Nirakar Rath</p>
+  <a href="https://www.linkedin.com/in/nirakar-rath-747301306/edit/forms/next-action/after-connect-add-position/"><i class="fab fa-linkedin"></i></a>
+  <a href="https://github.com/niru356"><i class="fab fa-github"></i></a>
+  <a href="https://mail.google.com/mail/u/0/#inbox"><i class="fas fa-envelope"></i></a>
 </footer>
 
-<script>
-/* Typing effect */
-const text="Turning complex data into meaningful business insights.";
-let i=0;
-(function type(){
-  if(i<text.length){document.getElementById("typing").innerHTML+=text.charAt(i++); setTimeout(type,50);}
-})();
-
-/* Animated role words */
-const roles = ["Data Analyst", "MCA Student", "BI Enthusiast", "Python Programmer"];
-let roleIndex=0, charIndex=0;
-const roleText = document.getElementById("roleText");
-function typeRole(){
-  if(charIndex <= roles[roleIndex].length){
-    roleText.textContent = roles[roleIndex].substring(0,charIndex);
-    charIndex++;
-    setTimeout(typeRole,100);
-  } else { setTimeout(eraseRole,1500); }
-}
-function eraseRole(){
-  if(charIndex>=0){roleText.textContent = roles[roleIndex].substring(0,charIndex); charIndex--; setTimeout(eraseRole,50);}
-  else{roleIndex = (roleIndex+1)%roles.length; setTimeout(typeRole,500);}
-}
-typeRole();
-
-/* Scroll Reveal */
-const reveals=document.querySelectorAll('.reveal');
-window.addEventListener('scroll',()=>{
-  reveals.forEach(r=>{
-    if(r.getBoundingClientRect().top<window.innerHeight-120){r.classList.add('active');}
-  });
-});
-
-/* Card hover spotlight */
-document.querySelectorAll('.card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const rect=card.getBoundingClientRect();
-    card.style.setProperty('--x',`${e.clientX-rect.left}px`);
-    card.style.setProperty('--y',`${e.clientY-rect.top}px`);
-  });
-});
-
-/* Charts */
-const chartOptions = {plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'rgba(255,255,255,.08)'}},x:{grid:{display:false}}}};
-const chartData = {
-  programming:{labels:['Python','R','SQL','Excel'],data:[[90,75,85,80],[88,70,75,65],[95,80,90,85]]},
-  bi:{labels:['Power BI','Tableau','Excel Dashboards'],data:[[88,70,85],[80,60,75],[85,65,70]]},
-  statistics:{labels:['Descriptive','Inferential','Predictive','Prescriptive'],data:[[80,75,85,70],[70,65,80,60],[75,70,85,65]]}
-};
-let charts = [];
-function initCharts(skill){
-  charts.forEach(c=>c.destroy());
-  charts=[];
-  const dataSets = chartData[skill].data.map(d=>({data:d,backgroundColor:'rgba(34,197,94,.6)',borderColor:'#22c55e',borderWidth:2}));
-  charts.push(new Chart(document.getElementById('chart1'),{type:'bar',data:{labels:chartData[skill].labels,datasets:[dataSets[0]]},options:chartOptions}));
-  charts.push(new Chart(document.getElementById('chart2'),{type:'doughnut',data:{labels:chartData[skill].labels,datasets:[dataSets[1]]},options:chartOptions}));
-  charts.push(new Chart(document.getElementById('chart3'),{type:'line',data:{labels:chartData[skill].labels,datasets:[dataSets[2]]},options:chartOptions}));
-}
-initCharts('programming');
-
-/* Filter buttons */
-document.querySelectorAll('.filter-btns button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.filter-btns button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    initCharts(btn.dataset.skill);
-  });
-});
-</script>
-
+<!-- JS -->
+<script src="script.js"></script>
 </body>
 </html>
+
